@@ -1,0 +1,7 @@
+<div>
+    <mat-grid-list cols="3" rowHeight="1:1">
+        <mat-grid-tile *ngFor="let de of listDes">
+            <app-dice [dice]="de" (click)="select(de)" [inSelection]=true></app-dice>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

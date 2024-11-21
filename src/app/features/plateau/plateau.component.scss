@@ -1,0 +1,20 @@
+body {
+  border: 2px solid white;
+}
+fa-icon {
+  font-size: 50px;
+}
+fa-icon.active {
+  color: red;
+}
+/* styles.css */
+.selected {
+  font-style: red;
+}
+.fa-heart {
+  color: #ccc;
+}
+
+.fa-heart.active {
+  color: deeppink;
+}

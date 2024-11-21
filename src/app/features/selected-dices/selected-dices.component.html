@@ -1,0 +1,10 @@
+<h3>Sélection Encours</h3>
+<div class="selection">
+    <mat-grid-list cols="6" rowHeight="1:1">
+        @for (item of selection; track $index) {
+        <mat-grid-tile><app-dice></app-dice></mat-grid-tile>
+        }
+
+    </mat-grid-list>
+
+</div>

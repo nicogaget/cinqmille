@@ -1,0 +1,53 @@
+.diceout {
+  width: 80px;
+  height: 80px;
+  background: #ff0000;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .dicein {
+    background: #e93838;
+    border-radius: 9px;
+    width: 74px;
+    height: 74px;
+
+    .point-container {
+      .dice-point {
+        width: 15px;
+        height: 19px;
+        background: #c4c4c4;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+.board {
+  display: flex;
+  background-color: green;
+  margin: 10px;
+  height: 600px;
+  flex: 12;
+  width: 98%;
+  padding: 10px;
+  .score-tab {
+    width: 20%;
+    border: solid 2px black;
+    height: 100%;
+  }
+  .gameplace {
+    background-color: black;
+    color: antiquewhite;
+    width: 20%;
+    flex-grow: 1;
+    margin: 0 10px;
+    border: solid 2px antiquewhite;
+  }
+  .console {
+    width: 20%;
+
+    background-color: antiquewhite;
+    border: solid 2px black;
+  }
+}

@@ -1,0 +1,16 @@
+.selection {
+  border: 2px solid white;
+  border-radius: 10px;
+}
+.dice-pot {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: flex-start;
+
+  .dice {
+    padding: 30px;
+    font-size: 90px;
+    color: chocolate;
+  }
+}
