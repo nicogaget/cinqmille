@@ -7,12 +7,13 @@ export class Dice implements DiceInterface {
 
     private _icon!: IconDefinition;
 
-
+    private _isCount: boolean = false;
     private _isSelected: boolean = false;
     constructor(value: number) {
         this.valueFace = value;
-
     }
+
+
     public get valueFace(): number {
         return this._valueFace;
     }
@@ -49,6 +50,14 @@ export class Dice implements DiceInterface {
     }
     public set isSelected(value: boolean) {
         this._isSelected = value;
+    }
+
+    public get isCount(): boolean {
+        return this._isCount
+    }
+
+    public set isCount(value: boolean) {
+        this._isCount = value
     }
 
     setIcon(value: number) {

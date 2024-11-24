@@ -1,10 +1,17 @@
-<div>
-    <mat-grid-list cols="3" rowHeight="1:1">
-        <mat-grid-tile *ngFor="let de of selection">
-            @if (de.isSelected) {
-            <app-dice [dice]="de" (click)="select(de)"></app-dice>
-            }
+<div class="container">
+    <div class="bloc1">
+        @for( de of dices; track $index){
+        @if (de.isSelected ) {
+        <app-dice [dice]="de" (click)="select(de)"></app-dice>
+        }
+        }
 
-        </mat-grid-tile>
-    </mat-grid-list>
+    </div>
+    <div class="bloc2">
+        @for( de of dices; track $index){
+        @if (de.isCount) {
+        <app-dice [dice]="de" (click)="select(de)"></app-dice>
+        }
+        }
+    </div>
 </div>

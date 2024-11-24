@@ -1,14 +1,16 @@
 <div class="container">
   <div class="">espace de jeux</div>
-  <!--plateau de selection dés-->
-  <app-selection></app-selection>
-  <!-- <div class="dice-pot"><app-dice-pot (currentResult)="currentResult"></app-dice-pot></div> -->
 
   <!-- plateau de lancer de dé-->
-  <app-plateau></app-plateau>
+  <app-plateau [dices]="dices" class="plateau"></app-plateau>
+  <!--plateau de selection dés-->
+  <app-selection [dices]="dices" class="selection"></app-selection>
+
+  <!-- <div class="dice-pot"><app-dice-pot (currentResult)="currentResult"></app-dice-pot></div> -->
+
 
   <button mat-flat-button (click)="lancerLesDes()">Lancer les dés</button>
   <button mat-flat-button (click)="Comptabiliser()">Compter</button>
 
-  <button mat-flat-button (click)="continuer()">continuer</button>
+  <!-- <button mat-flat-button (click)="continuer()">continuer</button> -->
 </div>

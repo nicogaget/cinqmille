@@ -4,7 +4,7 @@ import randomInteger from 'random-int';
 import { Dice } from '../../../models/dice.models';
 import { ResultNotifyService } from '../../../services/result-notify.service';
 import { DicePotService } from '../../../services/dice-pot.service';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { DiceService } from '../../../services/dice.service';
 
 @Component({
@@ -12,46 +12,47 @@ import { DiceService } from '../../../services/dice.service';
   templateUrl: './gameplace.component.html',
   styleUrls: ['./gameplace.component.scss']
 })
-export class GameplaceComponent implements OnInit {
-  listDe: Dice[] = [];
-  selection: Dice[] = [];
-  constructor(private dps: DicePotService) { }
-  ngOnInit(): void {
-    this.dps.getDiceList().subscribe({
-      next: (value) => { this.listDe = value }
-    })
-    console.log(this.listDe);
-
-  }
+export class GameplaceComponent {
 
 
-  /** x => nbre de dé à lancer */
+  dices: Dice[] = []
+  selection: Dice[] = []
+  constructor(private ds: DiceService) { }
   lancerLesDes() {
-    this.dps.setDiceList(5);
-  }
+    this.ds.lancerLesDes();
+    this.ds.getDices().forEach(obs => {
+      obs.subscribe(data => {
+        this.dices.push(data)
+        //console.log('Observable data:', data);
 
-  continuer() {
-    throw new Error('Method not implemented.');
+      })
+    })
   }
 
   Comptabiliser() {
-    let list: any = []
-
-    console.log("test");
-    this.selection.forEach(element => {
-      element.isSelected ? list.push(element) : ""
+    console.log(this.dices);
+    this.dices.map((el) => {
+      if (el.isSelected) {
+        el.isCount = !el.isCount
+        el.isSelected = !el.isSelected
+        this.selection.push(el)
+      }
     });
 
-    this.dps.setSelectedDicesList(list)
 
-    // on récupère la liste de dé
-    //on créé un liste avec 
-    //le résultat filtré par status de selection
-    //this.dps.addRemoveSelection()
 
-    //console.log(selection);
 
+    // this.dices.map((el) => { el.isSelected ?? el.isCount });
+    // console.log(this.dices);
+
+    // this.dices = this.dices.filter((el) => { !el.isCount })
 
   }
+
+  ajouterJoueur() { }
+  preparerPartie() { }
+  nouvellePartie() { }
+  garder() { }
+
 
 }

@@ -13,8 +13,8 @@ export class SelectedDicesComponent implements OnInit {
   constructor(private dps: DicePotService) { }
 
   ngOnInit(): void {
-    this.dps.getDiceList().subscribe({
-      next: value => this.selection = value
-    })
+    // this.dps.getDiceList().subscribe({
+    //   next: value => this.selection = value
+    // })
   }
 }

@@ -1,7 +1,3 @@
-.selection {
-  border: 2px solid white;
-  border-radius: 10px;
-}
 .dice-pot {
   display: flex;
   flex-wrap: wrap;
@@ -13,4 +9,15 @@
     font-size: 90px;
     color: chocolate;
   }
+}
+
+.plateau,
+.selection {
+  margin: 5px;
+  border-radius: 10px;
+  height: 200px;
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid aliceblue;
+  align-items: center;
 }

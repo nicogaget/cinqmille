@@ -4,6 +4,7 @@ import { SelectionNotifyService } from '../../services/selection-notify.service'
 import { Dice } from '../../models/dice.models';
 import { ResultNotifyService } from '../../services/result-notify.service';
 import { DicePotService } from '../../services/dice-pot.service';
+import { DiceService } from '../../services/dice.service';
 
 @Component({
   selector: 'app-plateau',
@@ -12,32 +13,38 @@ import { DicePotService } from '../../services/dice-pot.service';
 })
 export class PlateauComponent implements OnInit {
 
-  @Input() listDes!: Dice[];
+  @Input() dices!: Dice[];
   @Output() selectDeEvent = new EventEmitter<Dice>();
 
-  constructor(private dps: DicePotService) { }
 
-  selection: Dice[] = [];
+  constructor(private ds: DiceService) { }
+
   ngOnInit(): void {
-    this.dps.getDiceList().subscribe({
-      next: (value) => this.listDes = value,
-    });
+    console.log("test");
+
   }
-
   select(de: Dice) {
-    console.log("t1");
-    /* on vide la liste de dé selectionnés */
-    this.selection = [];
-    //pour chaque de de la list
-    this.listDes.forEach(element => {
-      // si on a cliqué sur le dé alors on le set isSelected
-      if (element == de) {
-        element.isSelected = !element.isSelected;
+    console.log(de);
+    de.isSelected = !de.isSelected
 
-      }
-
-    });
-    //this.dps.setDiceList()
   }
 
 }
+
+// select(de: Dice) {
+//   console.log("t1");
+//   /* on vide la liste de dé selectionnés */
+//   this.selection = [];
+//   //pour chaque de de la list
+//   this.listDes.forEach(element => {
+//     // si on a cliqué sur le dé alors on le set isSelected
+//     if (element == de) {
+//       element.isSelected = !element.isSelected;
+
+//     }
+
+//   });
+//   //this.dps.setDiceList()
+// }
+
+

@@ -4,6 +4,7 @@ export interface DiceInterface {
   valueFace: number,
   icon: IconDefinition
   isSelected: boolean
+  isCount: boolean
 
 
 }

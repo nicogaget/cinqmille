@@ -10,17 +10,21 @@ import { DicePotService } from '../../../services/dice-pot.service';
   styleUrl: './selection.component.scss'
 })
 export class SelectionComponent {
-  select(_t6: Dice) {
-    throw new Error('Method not implemented.');
-  }
 
-  selection: Dice[] = [];
+
+  @Input() dices: Dice[] = [];
   constructor(private dps: DicePotService) { }
 
   ngOnInit(): void {
-    this.dps.getDiceList().subscribe({
-      next: value => this.selection = value
-    })
+    // this.dps.getDiceList().subscribe({
+    //   next: value => this.selection = value
+    // })
   }
+  select(de: Dice) {
+    console.log(de);
+    de.isSelected = !de.isSelected
+
+  }
+
 
 }
